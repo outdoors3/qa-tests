@@ -4,8 +4,8 @@ requests=$3
 message_color="#36a64f"
 
 slack_message (){
-    url='https://hooks.slack.com/services/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'
-    username='zabbix'
+    url='https:''
+    username=''
 
     to="#qa-bots"
     subject="INFO"
@@ -50,8 +50,3 @@ then
         test_url=""
         slack_message
     fi
-else 
-    message="Results of load test on 38 pages, $requests requests for each page:"
-    test_url=""
-    slack_message
-fi

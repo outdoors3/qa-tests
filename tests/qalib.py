@@ -62,7 +62,7 @@ def set_up_chrome(logs_pipe, headless, *extensions):
         }
         print(capabilities)
         chrome = webdriver.Remote(
-            command_executor="",
+            command_executor="http://qa.opnplatform.com:8080/",
             desired_capabilities=capabilities,
             )
 
@@ -269,12 +269,7 @@ def load_main_page(browser, logs):
 
     browser.get(main_page)
     print(date(), 'Main page opened', file=logs)
-    try:
-        element = retrieve_element(browser, logs, 3, By.XPATH,
-                                   '//a[contains(@class, "button-white") and contains(text(), "GO AHEAD")]')
-        element.click()
-    except:
-        pass
+
 
 
 def load_register_main_page(browser, logs):
@@ -284,13 +279,14 @@ def load_register_main_page(browser, logs):
 
 
 def login(browser, logs, username, password):
-    element_click(browser, logs, DEFAULT_SLEEP, By.XPATH, '//*[@id="root"]/div[1]/div[1]/div[2]/a[1]/div/button')
+    element_click(browser, logs, DEFAULT_SLEEP, By.XPATH, "//h2[contains(text(),'login')] ")
     print(date(), 'Starting login with {}:{}...'.format(username, password), file=logs)
     element_send_keys(browser, logs, DEFAULT_SLEEP, By.NAME, 'email', username)
     element_send_keys(browser, logs, DEFAULT_SLEEP, By.NAME, 'password', password)
-    element_click(browser, logs, DEFAULT_SLEEP, By.XPATH, '//*[@id="root"]/div[1]/div[4]/div[2]/div/div[2]/form/button')
+    element_click(browser, logs, DEFAULT_SLEEP, By.XPATH, '//*[@id="root"]/div/div[2]/div[1]/form/button/span[1]')
     print(date(), 'Finished login', file=logs)
-    wait_until_with_exception(browser, logs, DEFAULT_TIMEOUT, EC.title_is('OPN Platform'))
+    sleep(4)
+    #wait_until_with_exception(browser, logs, DEFAULT_TIMEOUT, EC.visibility_of("//h2[@class='MuiTypography-root-8 MuiTypography-subtitle2-20']"))
 
 
 def sign_out(browser, logs):

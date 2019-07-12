@@ -1,1 +1,3 @@
-Login via email successfully passed
+Main page successfully opened
+Cookie is accepted
+Login via google successfully passed

@@ -6,7 +6,7 @@ from time import sleep
 
 name_of_test = "T-001-001"
 
-description = "login prod testing"
+description = "login dev testing"
 result = []
 def callback():
 
@@ -20,15 +20,24 @@ def callback():
         browser, logs = qalib.set_up("chrome", "stdout", "false")
 
         qalib.load_main_page(browser, logs)
+    except:
+        result.append("Main page opened")
+
+    try:
+        qalib.element_click(browser, logs, 3, By.XPATH, '//*[@id="hs-eu-confirmation-button"]')
+        result.append("Cookie is accepted")
+    except:
+        result.append("Something wrong with cookies")
+    try:
 
         qalib.login(browser, logs, login, password)
 
-        qalib.wait_until_with_exception(browser, logs, 10, EC.visibility_of_element_located((By.XPATH, '//a[@class="logined-user-label-wrapper"]')))
+        #qalib.wait_until_with_exception(browser, logs, 10, EC.visibility_of_element_located((By.XPATH, "//h2[@class='MuiTypography-root-8 MuiTypography-subtitle2-20']")))
 
         result.append("Login via email successfully passed")
     except:
         result.append("Login via email failed")
 
     qalib.result_of_the_test(result)
-    qalib.tear_down(browser, logs)
+   # qalib.tear_down(browser, logs)
 qalib.register_qa_test(name_of_test, description, callback)

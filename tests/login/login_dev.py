@@ -23,12 +23,12 @@ def callback():
 
         qalib.login(browser, logs, login, password)
 
-        qalib.wait_until_with_exception(browser, logs, 10, EC.visibility_of_element_located((By.XPATH, '//a[@class="logined-user-label-wrapper"]')))
+        #qalib.wait_until_with_exception(browser, logs, 10, EC.visibility_of_element_located((By.XPATH, "//h2[@class='MuiTypography-root-8 MuiTypography-subtitle2-20']")))
 
         result.append("Login via email successfully passed")
     except:
         result.append("Login via email failed")
 
     qalib.result_of_the_test(result)
-    qalib.tear_down(browser, logs)
+   # qalib.tear_down(browser, logs)
 qalib.register_qa_test(name_of_test, description, callback)

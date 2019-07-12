@@ -1,4 +1,4 @@
-#!/home/subutai/Desktop/qa/venv/bin/python
+#!/home/subutai/Desktop/opn/venv/bin/python
 
 import sys
 import getopt
