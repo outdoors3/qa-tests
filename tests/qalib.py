@@ -73,6 +73,8 @@ def set_up_chrome(logs_pipe, headless, *extensions):
 
     else:
         options = webdriver.ChromeOptions()
+        options.add_experimental_option('w3c', False)
+        #create_webdriver('Chrome', options=options)
 
         extensions = list(extensions)
         print(date(), 'extensions:', extensions)
@@ -264,7 +266,7 @@ def wait_until_not_without_exception(browser, logs, duration, method):
 
 
 def load_main_page(browser, logs):
-    main_page = 'https://' + WHICH_PLATFORM + 'opnplatform.com'
+    main_page = 'https://' + git_PLATFORM + 'opnplatform.com'
     print(date(), "Main page is '%s'" % main_page)
 
     browser.get(main_page)
