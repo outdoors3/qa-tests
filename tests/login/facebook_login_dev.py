@@ -63,5 +63,5 @@ def callback():
 qalib.register_qa_test(name_of_test, description, callback)
 
 
-#//*[@id="hs-eu-confirmation-button"]
+
 
