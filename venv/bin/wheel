@@ -1,4 +1,4 @@
-#!/home/subutai/Desktop/opn/venv/bin/python3
+#!/home/subutai/Desktop/qa-tests/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

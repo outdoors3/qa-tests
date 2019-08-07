@@ -54,7 +54,7 @@ def callback():
         browser.switch_to_window(window_before)
         sleep(4)
 
-        qalib.wait_until_with_exception(browser, logs, 10, EC.title_is('OPN Platform'))
+        qalib.wait_until_with_exception(browser, logs, 10, EC.visibility_of_element_located( "//h2[@class='MuiTypography-root MuiTypography-subtitle2']"))
         sleep(4)
 
         result.append("Login via facebook successfully passed")

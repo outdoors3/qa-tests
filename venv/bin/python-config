@@ -1,4 +1,4 @@
-#!/home/subutai/Desktop/opn/venv/bin/python
+#!/home/subutai/Desktop/qa-tests/venv/bin/python
 
 import sys
 import getopt
